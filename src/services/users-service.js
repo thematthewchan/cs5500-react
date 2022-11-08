@@ -1,10 +1,10 @@
 import axios from "axios";
-const BASE_URL = "http://my-node-express-project-env.eba-hxq4pgvm.us-east-1.elasticbeanstalk.com";
+const BASE_URL = "https://a2-tuiter-2.herokuapp.com";
 // const BASE_URL = "https://software-engineering-node-fa22.herokuapp.com/api";
 // const BASE_URL = "http://localhost:4000/api";
 
-const LOGIN_API = `${BASE_URL}/api/login`;
-const USERS_API = `${BASE_URL}/api/users`;
+const LOGIN_API = `${BASE_URL}/login`;
+const USERS_API = `${BASE_URL}/users`;
 
 export const createUser = (user) =>
   axios.post(`${USERS_API}`, user)
@@ -12,7 +12,7 @@ export const createUser = (user) =>
 
 export const findAllUsers = () =>
   axios.get(USERS_API)
-    .then(response => response.data);
+    .then(response => response.data)
 
 export const findUserById = (uid) =>
   axios.get(`${USERS_API}/${uid}`)
