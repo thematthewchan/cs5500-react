@@ -90,6 +90,14 @@ const Profile = () => {
       ) : (
         Placeholder
       )}
+      <Link to="/profile/mytuits">
+        Tuits</Link>
+      <Link to="/profile/tuits-and-replies">
+        Tuits & replies</Link>
+      <Link to="/profile/media">
+        Media</Link>
+      <Link to="/profile/mylikes">
+        Likes</Link>
 
       <Box my={3}>
         <Button variant="contained" component={RouterLink} to="mytuits">
@@ -98,7 +106,15 @@ const Profile = () => {
       </Box>
 
       <Routes>
-        <Route path="mytuits" element={<MyTuits />} />
+        <Route path="/mytuits"
+          element={<MyTuits />} />
+        <Route path="/tuits-and-replies"
+          element={<TuitsAndReplies />} />
+        <Route path="/media"
+          element={<Media />} />
+        <Route path="/mylikes"
+          element={<MyLikes />} />
+
       </Routes>
     </Box>
   );
