@@ -15,7 +15,7 @@ const TuitStats = ({ tuit, likeTuit, dislikeTuit, findUserLikesTuit }) => {
       likeValueDisplayLogic = <ThumbUpAlt sx={{ color: "blue", mx: 1 }} />;
     }
   } else {
-    likeValueDisplayLogic = <ThumbUpAlt sx={{ color: "gray", mx: 1 }} />;
+    likeValueDisplayLogic = <ThumbUpAlt sx={{ color: "black", mx: 1 }} />;
   }
 
   let dislikeValueDisplayLogic;
@@ -28,7 +28,7 @@ const TuitStats = ({ tuit, likeTuit, dislikeTuit, findUserLikesTuit }) => {
     }
   } else if (tuit.stats && tuit.stats.dislikes <= 0) {
     dislikeValueDisplayLogic = (
-      <ThumbDownAlt id="gray" sx={{ color: "gray", mx: 1 }} />
+      <ThumbDownAlt id="gray" sx={{ color: "black", mx: 1 }} />
     );
   }
   return (
