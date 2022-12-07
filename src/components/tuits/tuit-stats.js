@@ -1,33 +1,63 @@
-import React from "react";
+import {
+  ChatBubbleOutline,
+  Inbox,
+  Repeat,
+  ThumbDownAlt,
+  ThumbUpAlt,
+} from "@mui/icons-material";
+import React, { useEffect, useState } from "react";
 
-const TuitStats = ({ tuit, likeTuit }) => {
+const TuitStats = ({ tuit, likeTuit, dislikeTuit, findUserLikesTuit }) => {
+  let likeValueDisplayLogic;
+
+  if (tuit.stats && tuit.stats.likes) {
+    if (tuit.stats.likes > 0) {
+      likeValueDisplayLogic = <ThumbUpAlt sx={{ color: "blue", mx: 1 }} />;
+    }
+  } else {
+    likeValueDisplayLogic = <ThumbUpAlt sx={{ color: "gray", mx: 1 }} />;
+  }
+
+  let dislikeValueDisplayLogic;
+
+  if (tuit.stats && tuit.stats.dislikes) {
+    if (tuit.stats.dislikes > 0) {
+      dislikeValueDisplayLogic = (
+        <ThumbDownAlt id="red" sx={{ color: "red", mx: 1 }} />
+      );
+    }
+  } else if (tuit.stats && tuit.stats.dislikes <= 0) {
+    dislikeValueDisplayLogic = (
+      <ThumbDownAlt id="gray" sx={{ color: "gray", mx: 1 }} />
+    );
+  }
   return (
     <div className="row mt-2">
       <div className="col">
-        <i className="far fa-message me-1"></i>
+        <ChatBubbleOutline sx={{ mx: 1 }} />
         {tuit.stats && tuit.stats.replies}
       </div>
       <div className="col">
-        <i className="far fa-retweet me-1"></i>
+        <Repeat sx={{ mx: 1 }} />
         {tuit.stats && tuit.stats.retuits}
       </div>
       <div className="col">
         <span onClick={() => likeTuit(tuit)}>
-          {
-            tuit.stats && tuit.stats.likes && tuit.stats.likes > 0 &&
-            <i className="fas fa-heart me-1" style={{ color: 'red' }}></i>
-          }
-          {
-            tuit.stats && tuit.stats.likes && tuit.stats.likes <= 0 &&
-            <i className="far fa-heart me-1"></i>
-          }
+          {likeValueDisplayLogic}
+
           {tuit.stats && tuit.stats.likes}
         </span>
       </div>
       <div className="col">
-        <i className="far fa-inbox-out"></i>
+        <span onClick={() => dislikeTuit(tuit)}>
+          {dislikeValueDisplayLogic}
+          {tuit.stats && tuit.stats.dislikes}
+        </span>
+      </div>
+      <div className="col">
+        <Inbox sx={{ mx: 1 }} />
       </div>
     </div>
   );
-}
+};
 export default TuitStats;

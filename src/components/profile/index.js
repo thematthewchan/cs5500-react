@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 import Tuits from "../tuits";
@@ -10,6 +10,8 @@ import * as serviceProfile from "../../services/profiles-service";
 import * as serviceUser from "../../services/users-service";
 import Skeleton from "@mui/material/Skeleton";
 import { useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+
 
 const Placeholder = (
   <Stack spacing={1}>
@@ -89,7 +91,15 @@ const Profile = () => {
         Placeholder
       )}
 
-      <Tuits tuits={tuitsArray} />
+      <Box my={3}>
+        <Button variant="contained" component={RouterLink} to="mytuits">
+          My Tuits
+        </Button>
+      </Box>
+
+      <Routes>
+        <Route path="mytuits" element={<MyTuits />} />
+      </Routes>
     </Box>
   );
 };
