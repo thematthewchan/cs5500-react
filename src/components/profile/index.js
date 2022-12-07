@@ -98,6 +98,8 @@ const Profile = () => {
         Media</Link>
       <Link to="/profile/mylikes">
         Likes</Link>
+      <Link to="/profile/mydislikes">
+        Likes</Link>
 
       <Box my={3}>
         <Button variant="contained" component={RouterLink} to="mytuits">
@@ -114,6 +116,8 @@ const Profile = () => {
           element={<Media />} />
         <Route path="/mylikes"
           element={<MyLikes />} />
+        <Route path="/mydislikes"
+          element={<MyDisLikes />} />
 
       </Routes>
     </Box>
