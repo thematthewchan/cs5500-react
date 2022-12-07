@@ -12,7 +12,6 @@ import Skeleton from "@mui/material/Skeleton";
 import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 
-
 const Placeholder = (
   <Stack spacing={1}>
     {/* For variant="text", adjust the height via font-size */}

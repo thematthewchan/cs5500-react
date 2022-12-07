@@ -44,7 +44,6 @@ const TuitStats = ({ tuit, likeTuit, dislikeTuit, findUserLikesTuit }) => {
       <div className="col">
         <span onClick={() => likeTuit(tuit)}>
           {likeValueDisplayLogic}
-
           {tuit.stats && tuit.stats.likes}
         </span>
       </div>
@@ -60,4 +59,5 @@ const TuitStats = ({ tuit, likeTuit, dislikeTuit, findUserLikesTuit }) => {
     </div>
   );
 };
+
 export default TuitStats;
